@@ -1,0 +1,96 @@
+@import '../../../responsiveBreakpoint.scss';
+mat-icon {
+    cursor: pointer;
+}
+
+.search-error {
+    font-size: 0.8rem;
+}
+
+.setting-table {
+    margin-top: 5px;
+}
+
+.search-form {
+    margin-top: 10px;
+}
+
+@media screen and (min-width: $breakpoint-very-small) {
+    form {
+        width: 100%;
+        .mat-mdc-form-field {
+            width: 100%;
+            display: block;
+        }
+        .search-btn {
+            width: 100%;
+            .mat-mdc-fab-base {
+                width: 100%;
+            }
+        }
+    }
+    table {
+        .mat-mdc-cell {
+            min-width: 200px;
+        }
+        .mat-column-action {
+            width: 80px;
+            min-width: 80px;
+        }
+    }
+    .setting-list {
+        overflow: auto;
+    }
+}
+@media screen and (min-width: $breakpoint-small) {
+    form {
+        width: 100%;
+        .mat-mdc-form-field {
+            width: 100%;
+            display: block;
+        }
+        .search-btn {
+            width: 100%;
+            .mat-mdc-fab-base {
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: $breakpoint-medium) {
+    .mat-mdc-form-field {
+        width: 100%;
+        display: block;
+        .mat-mdc-fab-base {
+            width: auto;
+        }
+    }
+}
+
+@media screen and (min-width: $breakpoint-large) {
+    form {
+        width: 100%;
+        display: flex;
+        gap: 20px;
+        .action-btn {
+            padding: 5px;
+        }
+
+        .mat-mdc-form-field {
+            width: 30%;
+        }
+        .search-btn {
+            width: 10%;
+            button {
+                width: 100%;
+            }
+        }
+    }
+}
+
+.action-btn {
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}

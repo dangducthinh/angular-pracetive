@@ -1,0 +1,45 @@
+<h2 mat-dialog-title>{{ actionEvent.type === 'Edit' ? 'Edit' : 'Add' }} Setting</h2>
+<mat-dialog-content>
+    <form [formGroup]="form" (ngSubmit)="onSubmit()" #formDir="ngForm">
+        <mat-form-field appearance="outline">
+            <mat-label>Key Name</mat-label>
+            <input id="key" name="key" formControlName="key" matInput>
+            @if (form.get('key')?.hasError) {
+            <mat-error>{{ getErrorMessage('key', form.get('key')?.errors) }}</mat-error>
+            }
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Value</mat-label>
+            <input id="value" name="value" formControlName="value" matInput>
+            @if (form.get('value')?.hasError) {
+            <mat-error>{{ getErrorMessage('value', form.get('value')?.errors) }}</mat-error>
+            }
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Application Name</mat-label>
+            <input id="applicationName" name="applicationName" formControlName="applicationName" matInput>
+            @if (form.get('applicationName')?.hasError) {
+            <mat-error>{{ getErrorMessage('applicationName', form.get('applicationName')?.errors) }}</mat-error>
+            }
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Version Number</mat-label>
+            <input id="versionNumber" name="versionNumber" formControlName="versionNumber" matInput>
+            @if (form.get('versionNumber')?.hasError) {
+            <mat-error>{{ getErrorMessage('versionNumber', form.get('versionNumber')?.errors) }}</mat-error>
+            }
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Modified On</mat-label>
+            <input id="lastModifiedOn" name="lastModifiedOn" formControlName="lastModifiedOn" matInput>
+        </mat-form-field>
+        <mat-form-field appearance="outline">
+            <mat-label>Modified By</mat-label>
+            <input id="lastModifiedBy" name="lastModifiedBy" formControlName="lastModifiedBy" matInput>
+        </mat-form-field>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-button (click)="onCancel()">Cancel</button>
+    <button mat-flat-button [disabled]="!this.form.valid" (click)="onSubmit()">Save</button>
+</mat-dialog-actions>
