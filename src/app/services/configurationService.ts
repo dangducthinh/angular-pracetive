@@ -38,7 +38,6 @@ export default class ConfigurationService {
     }
 
     getPagingConfiguration(pageSize: number, pageIndex: number, key: string, applicationName: string, sortInfo?: SortInfo): PagingConfigurationModel {
-        console.log('trigger search')
         const sortApply : SortInfo = sortInfo ? sortInfo : { sortDirection: 'desc', sortField: 'id' };
         const data = _.orderBy(this.dataSourceSubject.value.filter(model => {
             let isMatch = true
