@@ -91,7 +91,7 @@ export default class ConfigurationService {
         this.dataSourceSubject.next(currentData.filter((model) => model.id !== id))
     }
 
-    checkKeyExist (key: string) : boolean {
-        return this.dataSourceSubject.value.findIndex(setting => setting.key === key) !== -1;
+    checkKeyExist (key: string, versionNumber: string) : boolean {
+        return this.dataSourceSubject.value.findIndex(setting => setting.key === key && setting.versionNumber === versionNumber) !== -1;
     }
 }

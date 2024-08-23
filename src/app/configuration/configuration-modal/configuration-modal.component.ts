@@ -45,24 +45,24 @@ export class ConfigurationModalComponent implements OnInit {
           id: 0,
           key: '',
           lastModifiedBy: '',
-          lastModifiedOn: new Date(),
+          lastModifiedOn: null,
           value: '',
           versionNumber: ''
         }
 
     this.form = new FormGroup({
-      key: new FormControl(model.key, [Validators.required, Validators.maxLength(1000), this.validateSameKey()]),
+      key: new FormControl(model.key, [Validators.required, Validators.maxLength(1000)]),
       value: new FormControl(model.value),
       applicationName: new FormControl(model.applicationName, [Validators.maxLength(500)]),
       versionNumber: new FormControl(model.versionNumber, [Validators.required, Validators.maxLength(20)]),
       id: new FormControl(model.id),
       lastModifiedBy: new FormControl(model.lastModifiedBy),
       lastModifiedOn: new FormControl(model.lastModifiedOn)
-    })
+    }, { validators: this.validateSameKey() })
+    this.form.get('lastModifiedBy')?.disable()
+    this.form.get('lastModifiedOn')?.disable()
     if (this.actionEvent.type === 'Edit') {
       this.form.get('key')?.disable()
-      this.form.get('lastModifiedBy')?.disable()
-      this.form.get('lastModifiedOn')?.disable()
       this.form.get('applicationName')?.disable()
       this.form.get('versionNumber')?.disable()
     }
@@ -120,7 +120,23 @@ export class ConfigurationModalComponent implements OnInit {
     return (control: AbstractControl): ValidationErrors | null => {
       if (this.actionEvent.type === 'Edit') return null;
 
-      return this.service.checkKeyExist(control.value) ? { sameKeyError: `Key name: ${control.value} already exist.` } : null;
+      const key = control.get('key')?.value;
+      const versionNumber = control.get('versionNumber')?.value;
+
+      return this.service.checkKeyExist(key, versionNumber) ? { sameKeyError: `Key name: ${key} with same version ${versionNumber} already exist.` } : null;
     };
+  }
+
+  isFormTouchAndDirty(): boolean {
+    return this.form.dirty && this.form.touched
+  }
+  
+  getFormErrorMessage(): string {
+    if (this.form.hasError('sameKeyError')) {
+      const { sameKeyError } = this.form.errors || {}
+      return sameKeyError
+    }
+
+    return '';
   }
 }
