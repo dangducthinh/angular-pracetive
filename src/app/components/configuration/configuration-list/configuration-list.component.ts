@@ -3,7 +3,7 @@ import { MatTableModule } from '@angular/material/table';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { ConfigurationModel } from '../../../model/Configuration';
-import ConfigurationService, { SortInfo } from '../../../services/configurationService';
+import ConfigurationService, { SortInfo } from '../../../services/configuration.service';
 import { MatPaginatorModule, PageEvent } from '@angular/material/paginator';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';

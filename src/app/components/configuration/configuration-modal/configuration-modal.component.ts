@@ -15,7 +15,7 @@ import { ConfigurationActionEvent } from '../configuration-list/configuration-li
 import { OnInit } from '@angular/core';
 import { ConfigurationModel } from '../../../model/Configuration';
 import { AbstractControl, FormControl, FormGroup, FormsModule, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
-import ConfigurationService from '../../../services/configurationService';
+import ConfigurationService from '../../../services/configuration.service';
 import { ConfigurationConfirmModalComponent } from '../configuration-confirm-modal/configuration-confirm-modal.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';

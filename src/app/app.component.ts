@@ -3,7 +3,7 @@ import { ConfigurationListComponent, ConfigurationActionEvent } from './componen
 import { ConfigurationModalComponent } from './components/configuration/configuration-modal/configuration-modal.component';
 import { ConfigurationConfirmModalComponent } from './components/configuration/configuration-confirm-modal/configuration-confirm-modal.component';
 import { MatDialog } from '@angular/material/dialog';
-import ConfigurationService from './services/configurationService';
+import ConfigurationService from './services/configuration.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
