@@ -1,8 +1,7 @@
-import { Component, inject, NgModule, ViewChild } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { ConfigurationListComponent, ConfigurationActionEvent } from './configuration/configuration-list/configuration-list.component';
-import { ConfigurationModalComponent } from './configuration/configuration-modal/configuration-modal.component';
-import { ConfigurationConfirmModalComponent } from './configuration/configuration-confirm-modal/configuration-confirm-modal.component';
+import { Component, inject, ViewChild } from '@angular/core';
+import { ConfigurationListComponent, ConfigurationActionEvent } from './components/configuration/configuration-list/configuration-list.component';
+import { ConfigurationModalComponent } from './components/configuration/configuration-modal/configuration-modal.component';
+import { ConfigurationConfirmModalComponent } from './components/configuration/configuration-confirm-modal/configuration-confirm-modal.component';
 import { MatDialog } from '@angular/material/dialog';
 import ConfigurationService from './services/configurationService';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -10,7 +9,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, ConfigurationListComponent, ConfigurationModalComponent],
+  imports: [ConfigurationListComponent, ConfigurationModalComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
